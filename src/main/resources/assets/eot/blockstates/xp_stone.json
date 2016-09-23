@@ -1,0 +1,15 @@
+{
+	"variants": {
+		"normal": { "model":"eot:xp_stone_empty" },
+		"xp_stone=1": { "model":"eot:xp_stone_1" },
+		"xp_stone=2": { "model":"eot:xp_stone_2" },
+		"xp_stone=3": { "model":"eot:xp_stone_3" },
+		"xp_stone=4": { "model":"eot:xp_stone_4" },
+		"xp_stone=5": { "model":"eot:xp_stone_5" },
+		"xp_stone=6": { "model":"eot:xp_stone_6" },
+		"xp_stone=7": { "model":"eot:xp_stone_7" },
+		"xp_stone=8": { "model":"eot:xp_stone_8" },
+		"xp_stone=9": { "model":"eot:xp_stone_9" },
+		"xp_stone=full": { "model":"eot:xp_stone_full" }
+	}
+}

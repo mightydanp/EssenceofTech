@@ -1,0 +1,6 @@
+{
+	"parent":"block/cube_all",
+	"textures": {
+		"all": "eot:blocks/decorative_brick_castle"
+	}
+}
