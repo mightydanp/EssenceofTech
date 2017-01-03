@@ -25,18 +25,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
  */
 class ItemMagicalStone extends IItem {
 
-	public static String		emptyFirstLine									= "This seems to be pulsing power.";
-	public static String		emptySecondLine									= "It only happens whenever i get close to these creatures.";
-	public static String		emptyThirdLine									= "I wonder if this is linked to them.";
-
-	public static String		fullFirstLine										= "The  Magical Stone seems to be full?";
-	public static String		fullSecondLine									= "It seems to be useless now.";
-	public static String		fullThirdLine										= "I wonder whats inside?";
-
-	public static String[]	subItemsDescriptionsFirstLine		= new String[] { fullFirstLine, emptyFirstLine, emptyFirstLine, emptyFirstLine, emptyFirstLine, emptyFirstLine, emptyFirstLine, emptyFirstLine, emptyFirstLine, emptyFirstLine, emptyFirstLine, emptyFirstLine, emptyFirstLine, emptyFirstLine, emptyFirstLine, emptyFirstLine, emptyFirstLine };
-	public static String[]	subItemsDescriptionsSecondLine	= new String[] { fullSecondLine, emptySecondLine, emptySecondLine, emptySecondLine, emptySecondLine, emptySecondLine, emptySecondLine, emptySecondLine, emptySecondLine, emptySecondLine, emptySecondLine, emptySecondLine, emptySecondLine, emptySecondLine, emptySecondLine, emptySecondLine, emptySecondLine };
-	public static String[]	subItemsDescriptionsThirdLine		= new String[] { fullThirdLine, emptyThirdLine, emptyThirdLine, emptyThirdLine, emptyThirdLine, emptyThirdLine, emptyThirdLine, emptyThirdLine, emptyThirdLine, emptyThirdLine, emptyThirdLine, emptyThirdLine, emptyThirdLine, emptyThirdLine, emptyThirdLine, emptyThirdLine, emptyThirdLine };
-
 	public ItemMagicalStone(String unlocalizedName) {
 		super(unlocalizedName);
 		this.setCreativeTab(EoT.tabEoT);
@@ -66,7 +54,8 @@ class ItemMagicalStone extends IItem {
 	}
 
 	@Override
-	public boolean itemInteractionForEntity(ItemStack itemStack, EntityPlayer entityPlayer, EntityLivingBase entity, EnumHand hand) {
+	public boolean itemInteractionForEntity(ItemStack itemStack, EntityPlayer entityPlayer, EntityLivingBase entity,
+			EnumHand hand) {
 
 		NBTTagCompound nbt;
 		if (itemStack.hasTagCompound()) {
@@ -85,25 +74,29 @@ class ItemMagicalStone extends IItem {
 				if (itemStack.getItemDamage() > 0) {
 					entity.setHealth(0.0F);
 					nbt.setInteger("coolDown", ItemConfig.magicStoneCooldown);
-					if (!entity.worldObj.isRemote) {
-						entityPlayer.addChatMessage(new TextComponentString(TextFormatting.GRAY + "Soul Absurbed!"));
+					if (!entity.world.isRemote) {
+						entityPlayer.sendMessage(new TextComponentString(TextFormatting.GRAY + "Soul Absurbed!"));
 					}
 					itemStack.damageItem(-1, entityPlayer);
 					itemStack.setTagCompound(nbt);
 					return true;
 				} else {
-					if (!entity.worldObj.isRemote) {
-						entityPlayer.addChatMessage(new TextComponentString(TextFormatting.GRAY + "The  Magical Stone seems to be full?"));
-						entityPlayer.addChatMessage(new TextComponentString(TextFormatting.GRAY + "It seems to be useless now."));
-						entityPlayer.addChatMessage(new TextComponentString(TextFormatting.GRAY + "I wonder whats inside?"));
+					if (!entity.world.isRemote) {
+						entityPlayer.sendMessage(
+								new TextComponentString(TextFormatting.GRAY + "The  Magical Stone seems to be full?"));
+						entityPlayer.sendMessage(
+								new TextComponentString(TextFormatting.GRAY + "It seems to be useless now."));
+						entityPlayer.sendMessage(
+								new TextComponentString(TextFormatting.GRAY + "I wonder whats inside?"));
 					}
 					return true;
 				}
-			} else if (!entity.worldObj.isRemote) {
-				entityPlayer.addChatMessage(new TextComponentString(TextFormatting.GRAY + "Why has this stoped working?"));
+			} else if (!entity.world.isRemote) {
+				entityPlayer
+						.sendMessage(new TextComponentString(TextFormatting.GRAY + "Why has this stoped working?"));
 			}
 		} else {
-			entityPlayer.addChatMessage(new TextComponentString(TextFormatting.GRAY + "Why has this stoped working?"));
+			entityPlayer.sendMessage(new TextComponentString(TextFormatting.GRAY + "Why has this stoped working?"));
 		}
 		itemStack.setTagCompound(nbt);
 		return false;
@@ -130,18 +123,21 @@ class ItemMagicalStone extends IItem {
 			dataList.add("This seems to be pulsing power.");
 			dataList.add("It only happens whenever i get close to these creatures.");
 			dataList.add("I wonder if this is linked to them.");
-		}else{
+		} else {
 			dataList.add("Everytime I use this now it seems to get hotter.");
 			dataList.add("Maybe I should let it cool off.");
 		}
-		
-		if(DebugConfig.showMagicStoneCooldown == true){
-			int i = (coolDown / 20) + 1 ;
+
+		if (DebugConfig.showMagicStoneCooldown == true) {
+			int i = (coolDown / 20) + 1;
 			dataList.add("~Debug cooldown~");
 			dataList.add("Seconds Left:" + i);
 		}
-		
+
 	}
+	
+	/*if ((System.nanoTime()-time)/1_000_000>=1000) { 1000 = 1sec
+        time=System.nanoTime();*/
 
 	@SideOnly(Side.CLIENT)
 	@Override

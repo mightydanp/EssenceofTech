@@ -46,9 +46,9 @@ public class ItemBagEmpty extends IMetaItem {
 		if (state.getBlock() == Blocks.STONE && stack.getItemDamage() == 1 && !worldIn.isRemote ) {
 			EntityItem entityItemBag = new EntityItem(worldIn, entityLiving.posX, entityLiving.posY, entityLiving.posZ, new ItemStack(ModItems.bagEmpty, 1, 0));
 			EntityItem entityItemVibrantBits = new EntityItem(worldIn, entityLiving.posX, entityLiving.posY, entityLiving.posZ, new ItemStack(ModItems.vibrantResource, 1, 0));
-			worldIn.spawnEntityInWorld(entityItemVibrantBits);
-			--entityLiving.getHeldItemMainhand().stackSize;
-			worldIn.spawnEntityInWorld(entityItemBag);return true;
+			worldIn.spawnEntity(entityItemVibrantBits);
+			entityLiving.getHeldItemMainhand().shrink(1);
+			worldIn.spawnEntity(entityItemBag);return true;
 		}
 		return true;
 	}

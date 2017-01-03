@@ -28,7 +28,7 @@ public class WorldGenTwigs implements IWorldGenerator {
 
 			for (int i = 0; i < (random.nextInt(8)) + 8; i++) {
 				BlockPos pos = new BlockPos(posX + offset(8, random), posY, posZ + offset(8, random));
-				if (world.isAirBlock(new BlockPos(posX + offset(8, random), posY, posZ + offset(8, random))) && (!world.provider.getHasNoSky() || pos.getY() < 255)) {
+				if (world.isAirBlock(new BlockPos(posX + offset(8, random), posY, posZ + offset(8, random))) && (!world.provider.hasNoSky() || pos.getY() < 255)) {
 					if (world.getBlockState(pos.down()).getBlock() == Blocks.GRASS || world.getBlockState(pos.down()).getBlock() == Blocks.DIRT || world.getBlockState(pos.down()).getBlock() == Blocks.SAND || world.getBlockState(pos.down()).getBlock() == Blocks.STONE) {
 						if (!(world.getBlockState(pos).getBlock() == Blocks.WATER) || !(world.getBlockState(pos).getBlock() == Blocks.LAVA)) {
 							if (!(world.getBlockState(pos.down()).getBlock() == Blocks.AIR) && (world.getBlockState(pos.up()).getBlock() == Blocks.AIR)) {

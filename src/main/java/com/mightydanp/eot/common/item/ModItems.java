@@ -21,34 +21,34 @@ import net.minecraftforge.common.util.EnumHelper;
 public class ModItems extends IRegistryHandler {
 
 	public static ToolMaterial	bronzeToolMaterial					= EnumHelper.addToolMaterial("bronze", 2, 190, 5F, 1.5F, 15);
-	public static ToolMaterial	steelToolMaterial						= EnumHelper.addToolMaterial("steel", 3, 1750, 10F, 2.5f, 10);
+	public static ToolMaterial	steelToolMaterial					= EnumHelper.addToolMaterial("steel", 3, 1750, 10F, 2.5f, 10);
 	
 	public static Item					axeBronze;
 	public static Item					axeSteel;
 	public static Item					bagEmpty;
-	public static String				bagEmptyItemStates[]				= { "empty", "vibrant" };
+	public static String				bagEmptyItemStates[]		= { "empty", "vibrant" };
 	public static Item					bagTier1;
 	public static Item					bagTier2;
 	public static Item					bagTier3;
 	public static Item					endermanFlesh;
 	public static Item					essenceChunk;
-	public static String				essenceChunkItemStates[]		= { "magic", "air", "earth", "fire", "water" };
+	public static String				essenceChunkItemStates[]	= { "magic", "air", "earth", "fire", "water" };
 	public static Item					gem;
-	public static String				gemItemStates[]							= { "ruby", "sapphire" };
+	public static String				gemItemStates[]			    = { "ruby", "sapphire" };
 	public static Item					hoeBronze;
 	public static Item					hoeSteel;
 	public static Item					ingot;
-	public static String				ingotItemStates[]						= { "copper", "tin", "silver", "lead", "bronze", "steel" };
+	public static String				ingotItemStates[]		    = { "copper", "tin", "silver", "lead", "bronze", "steel" };
 	public static Item					magicalStone;
 	public static Item					mysteriousHammer;
 	public static Item					pickaxeBronze;
 	public static Item					pickaxeSteel;
 	public static Item					powder;
-	public static String				powderItemStates[]					= { "iron", "gold", "copper", "tin", "silver", "lead", "bronze" };
+	public static String				powderItemStates[]		    = { "iron", "gold", "copper", "tin", "silver", "lead", "bronze" };
 	public static Item					purePowder;
-	public static String				purePowderItemStates[]			= { "iron", "gold", "copper", "tin", "silver", "lead" };
+	public static String				purePowderItemStates[]		= { "iron", "gold", "copper", "tin", "silver", "lead" };
 	public static Item					rawPowder;
-	public static String				rawPowderItemStates[]				= { "iron", "gold", "copper", "tin", "silver", "lead" };
+	public static String				rawPowderItemStates[]		= { "iron", "gold", "copper", "tin", "silver", "lead" };
 	public static Item					spadeBronze;
 	public static Item					spadeSteel;
 	public static Item					swordBronze;
@@ -56,10 +56,10 @@ public class ModItems extends IRegistryHandler {
 	public static Item					vibrantResource;
 	public static String				vibrantResourceItemStates[]	= { "bits" };
 	public static Item					xpStone;
-	public static String				xpStoneItemStates[]	= { "full", "9", "8", "7", "6", "5", "4", "3", "2", "1", "empty" };
+	public static String				xpStoneItemStates[]	        = { "full", "9", "8", "7", "6", "5", "4", "3", "2", "1", "empty" };
 	
-
 	public static void preInit() {
+		
 		registerItem(axeBronze = new IItemAxe(bronzeToolMaterial, ItemReference.AXEBRONZE_NAME, 5.5F, -3.2F).setCreativeTab(EoT.tabEoT), ItemReference.AXEBRONZE_NAME);
 		registerItem(axeSteel = new IItemAxe(steelToolMaterial, ItemReference.AXESTEEL_NAME, 7.5F, -3.2F).setCreativeTab(EoT.tabEoT), ItemReference.AXESTEEL_NAME);
 		registerItem(bagEmpty = new ItemBagEmpty(ItemReference.BAGEMPTY_NAME, bagEmptyItemStates, bagEmptyItemStates.length), ItemReference.BAGEMPTY_NAME);
@@ -76,7 +76,6 @@ public class ModItems extends IRegistryHandler {
 		registerItem(mysteriousHammer = new ItemMysteriousHammer(ItemReference.MYSTERIOUSHAMMER_NAME), ItemReference.MYSTERIOUSHAMMER_NAME);
 		registerItem(pickaxeBronze = new IItemSword(bronzeToolMaterial, ItemReference.PICKAXEBRONZE_NAME).setCreativeTab(EoT.tabEoT), ItemReference.PICKAXEBRONZE_NAME);
 		registerItem(pickaxeSteel = new IItemSword(steelToolMaterial, ItemReference.PICKAXESTEEL_NAME).setCreativeTab(EoT.tabEoT), ItemReference.PICKAXESTEEL_NAME);
-		
 		registerItem(powder = new IMetaItem(ItemReference.POWDER_NAME, powderItemStates, powderItemStates.length).setCreativeTab(EoT.tabEoT), ItemReference.POWDER_NAME);
 		registerItem(purePowder = new IMetaItem(ItemReference.PUREPOWDER_NAME, purePowderItemStates, purePowderItemStates.length).setCreativeTab(EoT.tabEoT), ItemReference.PUREPOWDER_NAME);
 		registerItem(rawPowder = new IMetaItem(ItemReference.RAWPOWDER_NAME, rawPowderItemStates, rawPowderItemStates.length).setCreativeTab(EoT.tabEoT), ItemReference.RAWPOWDER_NAME);
@@ -98,16 +97,12 @@ public class ModItems extends IRegistryHandler {
 	public static void renderItems() {
 		renderItem(axeBronze, ItemReference.AXEBRONZE_NAME, null, 1);
 		renderItem(axeSteel, ItemReference.AXESTEEL_NAME, null, 1);
-		for (int i = 0; i < bagEmptyItemStates.length; i++) {
-			renderItem(bagEmpty, ItemReference.BAGEMPTY_NAME, bagEmptyItemStates[i], i);
-		}
+		renderMetaItem(bagEmpty, ItemReference.BAGEMPTY_NAME, bagEmptyItemStates, bagEmptyItemStates.length);
 		renderItem(bagTier1, ItemReference.BAGTIER1_NAME, null, 1);
 		renderItem(bagTier2, ItemReference.BAGTIER2_NAME, null, 1);
 		renderItem(bagTier3, ItemReference.BAGTIER3_NAME, null, 1);
 		renderItem(endermanFlesh, ItemReference.ENDERMANFLESH_NAME, null, 1);
-		for (int i = 0; i < essenceChunkItemStates.length; i++) {
-			renderItem(essenceChunk, ItemReference.ESSENCECHUNK_NAME, essenceChunkItemStates[i], i);
-		}
+        renderMetaItem(essenceChunk, ItemReference.ESSENCECHUNK_NAME, essenceChunkItemStates, essenceChunkItemStates.length);
 		for (int i = 0; i < gemItemStates.length; i++) {
 			renderItem(gem, ItemReference.GEM_NAME, gemItemStates[i], i);
 		}
@@ -136,7 +131,7 @@ public class ModItems extends IRegistryHandler {
 		for (int i = 0; i < vibrantResourceItemStates.length; i++) {
 			renderItem(vibrantResource, ItemReference.VIBRANTRESOURCE_NAME, vibrantResourceItemStates[i], i);
 		}
-		renderSpecialItem(xpStone, ItemReference.XPSTONE_NAME);
+		renderItem(xpStone, ItemReference.XPSTONE_NAME, null, 1);
 	}
 
 	public static void registerOreDictionary() {

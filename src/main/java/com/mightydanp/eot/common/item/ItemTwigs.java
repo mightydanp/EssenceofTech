@@ -19,13 +19,12 @@ public class ItemTwigs extends IMetaItemBlock {
 
 	}
 
-	@Override
 	public EnumActionResult onItemUse(ItemStack stack, EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		net.minecraft.block.state.IBlockState state = worldIn.getBlockState(pos);
 		if (facing == EnumFacing.UP && playerIn.canPlayerEdit(pos.offset(facing), facing, stack) && state.getBlock() != ModBlocks.twigs && worldIn.isAirBlock(pos.up())) {
 			worldIn.setBlockState(pos.up(), ModBlocks.twigs.getDefaultState());
 			if (!playerIn.capabilities.isCreativeMode) {
-				--stack.stackSize;
+				stack.shrink(1);
 			}
 			return EnumActionResult.SUCCESS;
 		} else {

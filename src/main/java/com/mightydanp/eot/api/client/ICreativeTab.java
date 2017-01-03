@@ -36,7 +36,6 @@ public class ICreativeTab extends CreativeTabs {
   }
 
   @SideOnly(Side.CLIENT)
-  @Override
   public int getIconItemDamage() {
     return icon.getItemDamage();
   }
@@ -44,7 +43,7 @@ public class ICreativeTab extends CreativeTabs {
   @Nonnull
   @SideOnly(Side.CLIENT)
   @Override
-  public Item getTabIconItem() {
-    return icon.getItem();
+  public ItemStack getTabIconItem() {
+    return new ItemStack(icon.getItem());
   }
 }

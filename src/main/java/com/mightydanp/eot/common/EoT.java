@@ -14,6 +14,7 @@ import com.mightydanp.eot.common.world.gen.feature.WorldGenTwigs;
 
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -43,8 +44,8 @@ public class EoT {
     
     public static CreativeTabs tabEoT = new CreativeTabs(Reference.MODID){
         @Override
-        public Item getTabIconItem(){
-            return ModItems.magicalStone;
+        public ItemStack getTabIconItem(){
+            return new ItemStack(ModItems.magicalStone);
         }
     };
     

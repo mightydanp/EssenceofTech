@@ -11,6 +11,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
+import net.minecraft.util.NonNullList;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -37,8 +38,7 @@ public class IMetaBlock <E extends Enum<E> & IMetaBlock.IEnumMeta & IStringSeria
   }
 
   @SideOnly(Side.CLIENT)
-  @Override
-  public void getSubBlocks(@Nonnull Item itemIn, CreativeTabs tab, List<ItemStack> list) {
+  public void getSubBlocks(@Nonnull Item itemIn, CreativeTabs tab, NonNullList<ItemStack> list) {
     for(E type : values) {
       list.add(new ItemStack(this, 1, type.getMeta()));
     }

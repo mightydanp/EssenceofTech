@@ -1,0 +1,68 @@
+{
+	"parent":"item/generated",
+	"textures": {
+        "layer0":"eot:items/xp_stone_full"
+    },
+	"overrides": [
+        {
+            "predicate": {
+                "damage": 1
+            },
+            "model": "eot:item/xp_stone/xp_stone_1"
+        },
+		{
+            "predicate": {
+                "damage": 2
+            },
+            "model": "eot:item/xp_stone/xp_stone_2"
+        },
+		{
+            "predicate": {
+                "damage": 3
+            },
+            "model": "eot:item/xp_stone/xp_stone_3"
+        },
+		{
+            "predicate": {
+                "damage": 4
+            },
+            "model": "eot:item/xp_stone/xp_stone_4"
+        },
+		{
+            "predicate": {
+                "damage": 5
+            },
+            "model": "eot:item/xp_stone/xp_stone_5"
+        },
+		{
+            "predicate": {
+                "damage": 6
+            },
+            "model": "eot:item/xp_stone/xp_stone_6"
+        },
+		{
+            "predicate": {
+                "damage": 7
+            },
+            "model": "eot:item/xp_stone/xp_stone_7"
+        },
+		{
+            "predicate": {
+                "damage": 8
+            },
+            "model": "eot:item/xp_stone/xp_stone_8"
+        },
+		{
+            "predicate": {
+                "damage": 9
+            },
+            "model": "eot:item/xp_stone/xp_stone_9"
+        },
+		{
+            "predicate": {
+                "damage": 10
+            },
+            "model": "eot:item/xp_stone/xp_stone_empty"
+        }
+    ]
+}

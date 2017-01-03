@@ -27,12 +27,6 @@ public class ItemXpStone extends IItem {
 		this.setCreativeTab(EoT.tabEoT);
 		this.setMaxStackSize(1);
 		this.setMaxDamage(10);
-		this.addPropertyOverride(new ResourceLocation("meta1"), new IItemPropertyGetter(){
-        @SideOnly(Side.CLIENT)
-        public float apply(ItemStack stack, @Nullable World worldIn, @Nullable EntityLivingBase entityIn){
-          return MathHelper.clamp_float((float)stack.getItemDamage() / (float)stack.getMaxDamage(), 0.0F, 1.0F);
-        }
-    });
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -73,24 +67,22 @@ public class ItemXpStone extends IItem {
 		}
 	}
 
-	public ActionResult<ItemStack> onItemRightClick(ItemStack itemStackIn, World worldIn, EntityPlayer playerIn, EnumHand hand) {
-		int experience = playerIn.experienceLevel;
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn){
+    	int experience = playerIn.experienceLevel;
 		int experienceSubtract = playerIn.experienceLevel - 1;
 		int experienceAdd = playerIn.experienceLevel + 1;
 
-		if (itemStackIn.getItemDamage() != 0 && experience != 0 && !playerIn.isSneaking()) {
+		if (playerIn.getHeldItemMainhand().getItemDamage() != 0 && experience != 0 && !playerIn.isSneaking()) {
 			playerIn.experienceLevel = experienceSubtract;
-			--playerIn.getHeldItemMainhand().stackSize;
-			itemStackIn.damageItem(-1, playerIn);
-			return new ActionResult(EnumActionResult.PASS, itemStackIn);
+			playerIn.getHeldItemMainhand().damageItem(-1, playerIn);
+			return new ActionResult(EnumActionResult.PASS, playerIn.getHeldItemMainhand());
 		}
-		if (itemStackIn.getItemDamage() != 10 && playerIn.isSneaking()) {
+		if (playerIn.getHeldItemMainhand().getItemDamage() != 10 && playerIn.isSneaking()) {
 			playerIn.experienceLevel = experienceAdd;
-			--playerIn.getHeldItemMainhand().stackSize;
-			itemStackIn.damageItem(+1, playerIn);
-			return new ActionResult(EnumActionResult.PASS, itemStackIn);
+			playerIn.getHeldItemMainhand().damageItem(+1, playerIn);
+			return new ActionResult(EnumActionResult.PASS, playerIn.getHeldItemMainhand());
 		}
-		return new ActionResult(EnumActionResult.FAIL, itemStackIn);
+		return new ActionResult(EnumActionResult.FAIL, playerIn.getHeldItemMainhand());
 	}
 
 }

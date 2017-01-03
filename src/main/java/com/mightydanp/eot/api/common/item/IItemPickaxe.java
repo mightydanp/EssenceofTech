@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.util.NonNullList;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -29,8 +30,7 @@ public class IItemPickaxe extends ItemPickaxe {
         return "item" + "." + itemUnlocalizedName;
     }
 
-    @Override
-    public void getSubItems(Item itemIn, CreativeTabs tab, List subItems) {
+    public void getSubItems(Item itemIn, CreativeTabs tab, NonNullList<ItemStack> subItems) {
         subItems.add(new ItemStack(itemIn, 1, 0));
 
     }

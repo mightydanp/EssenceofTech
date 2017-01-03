@@ -83,9 +83,9 @@ public class BlockEssenceStone extends IMetaBlock {
             Random random = worldIn.rand;
             int randomDrop = random.nextInt(99);
 
-            if (player.getHeldItem(EnumHand.MAIN_HAND).getItem() == ModItems.mysteriousHammer) {
+            if (player.getHeldItem(EnumHand.MAIN_HAND).getItem() == ModItems.mysteriousHammer && !worldIn.isRemote) {
                 if (randomDrop <= 10) {
-                    worldIn.spawnEntityInWorld(entityItem);
+                    worldIn.spawnEntity(entityItem);
                 }
             }
         }

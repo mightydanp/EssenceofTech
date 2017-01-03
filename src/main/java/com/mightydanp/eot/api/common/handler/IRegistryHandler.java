@@ -55,6 +55,14 @@ public abstract class IRegistryHandler {
 		}
 	}
 	
+	public static void renderMetaItem(Item item, String prefixName, String[] suffixName, int meta) {
+		for (int i = 0; i < meta; i++) {
+		     ModelLoader.setCustomModelResourceLocation(item, i, new ModelResourceLocation(Reference.MODID + ":" + prefixName + "_" + suffixName[i]));
+	    }
+	}
+	
+	
+	
 	public static void renderSpecialItem(Item item, String prefixName) {
 		ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation(Reference.MODID + ":" + prefixName));
 	}
@@ -207,7 +215,7 @@ public abstract class IRegistryHandler {
 
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void registerModProjectile(Class entityClass, String name) {
-		EntityRegistry.registerModEntity(entityClass, name, ++id, EoT.instance, 64, 10, true);
+		//EntityRegistry.registerModEntity(entityClass, name, ++id, EoT.instance, 64, 10, true);
 	}
 
 	public static void registerTileEntity(Class<? extends TileEntity> tileEntityClass) {
@@ -215,7 +223,7 @@ public abstract class IRegistryHandler {
 	}
 
 	public static void registerEntity(IRenderFactory<? super Entity> renderEntity, Class<Entity> entityClass, int id, Object modInstance, int trackingRange, int updateFreq, int hexColorPrimary, int hexColorSecondary) {
-		EntityRegistry.registerModEntity(entityClass, Reference.MODID + ":" + entityClass.getName().substring(6), id, modInstance, trackingRange, updateFreq, true, hexColorPrimary, hexColorSecondary);
+		//EntityRegistry.registerModEntity(entityClass, Reference.MODID + ":" + entityClass.getName().substring(6), id, modInstance, trackingRange, updateFreq, true, hexColorPrimary, hexColorSecondary);
 		RenderingRegistry.registerEntityRenderingHandler(entityClass, renderEntity);
 	}
 
