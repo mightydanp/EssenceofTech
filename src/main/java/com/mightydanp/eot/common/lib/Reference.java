@@ -1,13 +1,14 @@
 package com.mightydanp.eot.common.lib;
-/**
- * @auther MightyDanp
- * date class created: Jul 4, 2016 
- */
 
+/**
+ * Created by MightyDanp on 5/28/2017.
+ */
 public class Reference {
-    public static final String MODID = "eot";
-    public static final String MODNAME = "Essence of Tech";
-    public static final String VERSION = "0.1";
-    public static final String CLIENTPROXYLOCATION = "com.mightydanp.eot.client.ClientProxy";
-    public static final String COMMONPROXYLOCATION = "com.mightydanp.eot.common.CommonProxy";
+    public static final String MOD_ID = "eot";
+    public static final String MOD_NAME = "Essence of Tech";
+    public static final String MOD_VERSION = "0.1";
+    //Mod class location localization
+    public static final String CLIENT_PROXY_LOCATION = "com.mightydanp.eot.client.ClientProxy";
+    public static final String COMMON_PROXY_LOCATION = "com.mightydanp.eot.common.CommonProxy";
+    public static final String GUI_FACTORY_LOCATION = "com.mightydanp.eot.common.config.ConfigGui";
 }

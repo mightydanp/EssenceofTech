@@ -6,9 +6,9 @@ import com.mightydanp.eot.common.item.ModItems;
 import net.minecraft.block.BlockStone;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -32,11 +32,11 @@ import java.util.Random;
  * `
  * Created by MightyDanp on 8/12/2017.
  */
-public class BlockTwigs extends BlockCore implements IPlantable {
+public class BlockRocks extends BlockCore implements IPlantable {
 
     private static final AxisAlignedBB BOUNDING_BOX = new AxisAlignedBB(0.0, 0.0, 0.0, 1.0, 0.0625, 1.0);
 
-    public BlockTwigs(String unlocalizedName) {
+    public BlockRocks(String unlocalizedName) {
         super(unlocalizedName, Material.PLANTS, 0.1F, 0.0F, EoT.tabEot);
         this.setSoundType(SoundType.PLANT);
     }
@@ -93,17 +93,17 @@ public class BlockTwigs extends BlockCore implements IPlantable {
     public void harvestBlock(World worldIn, EntityPlayer player, BlockPos pos, IBlockState state, @Nullable TileEntity te, @Nullable ItemStack stack) {
         if (!worldIn.isRemote && stack != null && stack.getItem() == Items.SHEARS) {
             player.addStat(StatList.getBlockStats(this));
-            spawnAsEntity(worldIn, pos, new ItemStack(Item.getItemFromBlock(ModBlocks.twigs)));
+            spawnAsEntity(worldIn, pos, new ItemStack(Item.getItemFromBlock(ModBlocks.rocks)));
         } else {
             Random rand = null;
             player.addStat(StatList.getBlockStats(this));
-            spawnAsEntity(worldIn, pos, new ItemStack(Items.STICK, 1 + this.RANDOM.nextInt(2), 0));
+            spawnAsEntity(worldIn, pos, new ItemStack(ModItems.rock, 1 + this.RANDOM.nextInt(2), 0));
         }
     }
 
     @Override
     public net.minecraftforge.common.EnumPlantType getPlantType(net.minecraft.world.IBlockAccess world, BlockPos pos) {
-        if (this == ModBlocks.twigs) return net.minecraftforge.common.EnumPlantType.Desert;
+        if (this == ModBlocks.rocks) return net.minecraftforge.common.EnumPlantType.Desert;
         return net.minecraftforge.common.EnumPlantType.Plains;
     }
 

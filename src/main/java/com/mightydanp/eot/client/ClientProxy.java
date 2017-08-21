@@ -8,24 +8,21 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 /**
- * @auther MightyDanp date class created: Jul 4, 2016
+ * Created by MightyDanp on 8/8/2017.
  */
 public class ClientProxy extends CommonProxy {
 
-    @Override
-    public void preInit(FMLPreInitializationEvent event) {
-        ModBlocks.renderBlocks();
+    public void preInit() {
+        super.preInit();
         ModItems.renderItems();
+        ModBlocks.renderBlocks();
     }
 
-    @Override
-    public void init(FMLInitializationEvent event) {
-
+    public void init() {
+        super.init();
     }
 
-    @Override
-    public void postInit(FMLPostInitializationEvent event) {
-
+    public void postInit() {
+        super.postInit();
     }
-
 }

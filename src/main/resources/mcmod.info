@@ -1,14 +1,16 @@
-[{
+[
+{
   "modid": "eot",
   "name": "Essence of Tech",
-  "description": "Example placeholder mod.",
+  "description": "A mod in which it is based apawn magic and tech.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",
   "updateUrl": "",
   "authorList": ["MightyDanp"],
-  "credits": "The Forge and FML guys",
+  "credits": "The Forge and FML guys, for making this example",
   "logoFile": "",
   "screenshots": [],
   "dependencies": []
-}]
+}
+]

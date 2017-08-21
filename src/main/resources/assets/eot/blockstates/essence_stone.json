@@ -1,9 +1,0 @@
-{
-	"variants": {
-		"essence_stone=magic": { "model":"eot:essence_stone_magic" },
-		"essence_stone=air": { "model":"eot:essence_stone_air" },
-		"essence_stone=earth": { "model":"eot:essence_stone_earth" },
-		"essence_stone=fire": { "model":"eot:essence_stone_fire" },
-		"essence_stone=water": { "model":"eot:essence_stone_water" }
-	}
-}

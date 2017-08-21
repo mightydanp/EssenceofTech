@@ -1,9 +1,0 @@
-{
-	"variants": {
-		"essence_chunk=magic": { "model":"eot:essence_chunk_magic" },
-		"essence_chunk=air": { "model":"eot:essence_chunk_air" },
-		"essence_chunk=earth": { "model":"eot:essence_chunk_earth" },
-		"essence_chunk=fire": { "model":"eot:essence_chunk_fire" },
-		"essence_chunk=water": { "model":"eot:essence_chunk_water" }
-	}
-}

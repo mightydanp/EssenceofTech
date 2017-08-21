@@ -1,6 +1,0 @@
-{
-	"variants": {
-		"ore_gem=ruby": { "model":"eot:ore_gem_ruby" },
-		"ore_gem=sapphire": { "model":"eot:ore_gem_sapphire" }
-		}
-}

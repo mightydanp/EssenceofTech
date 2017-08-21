@@ -1,104 +1,46 @@
-tile.essence_stone_air.name=Air EssenceStone
-tile.essence_stone_magic.name=Magic EssenceStone
-tile.essence_stone_earth.name=Earth EssenceStone
-tile.essence_stone_fire.name=Fire EssenceStone
-tile.essence_stone_water.name=Water EssenceStone
-tile.ore_copper.name=Copper Ore
-tile.ore_tin.name=Tin Ore
-tile.ore_silver.name=Silver Ore
-tile.ore_lead.name=Lead Ore
-tile.ore_gem_ruby.name=Ruby Ore
-tile.ore_gem_sapphire.name=Sapphire Ore
-tile.compressed_copper.name=Block of Copper
-tile.compressed_tin.name=Block of Tin
-tile.compressed_lead.name=Block of Lead
-tile.compressed_bronze.name=Block of Bronze
-tile.compressed_silver.name=Block of Silver
-tile.compressed_ruby.name=Block of Ruby
-tile.compressed_sapphire.name=Block of Sapphire
 tile.twigs.name=Twigs
+tile.rocks.name=Rocks
+tile.ore_sand_tin.name=Tin Ore
+tile.ore_sand_copper.name=Copper Ore
+tile.camp_fire_idle.name=Camp Fire
+tile.furnace_idle.name=Furnace
+tile.form_furnace.name=Furnace Form
 
-tile.cauldron_lid.name=Cauldron Lid
+item.ash.name=Ashes
+item.pan.name=Pan
+item.fired_clay_pan.name=Fired Clay Pan
+item.unfired_clay_pan.name=Unfired Clay Pan
+item.pan.name=Pan
+item.fired_clay_pot.name=Fired Clay Pot
+item.unfired_clay_pot.name=Unfired Clay Pot
+item.pot.name=Pot
+item.small_crucible.name=Small Crucible
+item.rock.name=Rock
+item.flint_and_stone.name=Flint and Stone
+item.bark_strip.name=Bark Strip
+item.rope.name=Rope
+item.salvaged_axe.name=Salvaged Axe
 
-tile.decorative_brick_castle.name=Castle Brick
+material.stainlesssteel=Stainless Steel
+material.titanium=Titanium
+material.tungstensteel=Tungsten Steel
+
+fluid.fluid_stainlesssteel=Molton Stainless Steel
+fluid.fluid_titanium=Molton Titanium
+fluid.fluid_tungstensteel=Molton Tungsten Steel
+
+config.main_eot_title.name=Essence of Tech Config
+config.category.survivial.name=Survival
+config.category.survivial.comment=Settings that alter or change survival.
+config.better_adventure.name=Better Adventure
+config.better_adventure.comment=Turn this to false if you don't want to be forced to use the right tool to harvest a block.
+config.force_survival.name=Force Survival.
+config.force_survival.comment=When set to true it will force the player into survival if the player is in adventure.
 
 
-item.magical_stone.name=Magical Stone
-item.mysterious_hammer.name=Mysterious Hammer
-item.enderman_flesh.name=Enderman Flesh
-item.bag_empty.name=Empty Bag
-item.bag_tier_1.name=Magical Bag
-item.bag_tier_2.name=Magical Bag
-item.bag_tier_3.name=Magical Bag
-item.bag_vibrant.name=Vibrant Bag
 
-item.essence_chunk_air.name=Air EssenceChunk
-item.essence_chunk_magic.name=Magic EssenceChunk
-item.essence_chunk_earth.name=Earth EssenceChunk
-item.essence_chunk_fire.name=Fire EssenceChunk
-item.essence_chunk_water.name=Water EssenceChunk
 
-item.ingot_copper.name=Copper Ingot
-item.ingot_tin.name=Tin Ingot
-item.ingot_lead.name=Lead Ingot
-item.ingot_bronze.name=Bronze Ingot
-item.ingot_silver.name=Silver Ingot
-item.ingot_steel.name=Steel Ingot
-
-item.gem_ruby.name=Ruby
-item.gem_sapphire.name=Sapphire
-
-item.raw_powder_iron.name=Iron Raw Powder
-item.raw_powder_gold.name=Gold Raw Powder
-item.raw_powder_tin.name=Tin Raw Powder
-item.raw_powder_copper.name=Copper Raw Powder
-item.raw_powder_silver.name=Silver Raw Powder
-item.raw_powder_lead.name=Lead Raw Powder
-
-item.pure_powder_iron.name=Iron Pure Powder
-item.pure_powder_gold.name=Gold Pure Powder
-item.pure_powder_tin.name=Tin Pure Powder
-item.pure_powder_copper.name=Copper Pure Powder
-item.pure_powder_silver.name=Silver Pure Powder
-item.pure_powder_lead.name=Lead Pure Powder
-
-item.powder_iron.name=Iron Powder
-item.powder_gold.name=Gold Powder
-item.powder_tin.name=Tin Powder
-item.powder_copper.name=Copper Powder
-item.powder_silver.name=Silver Powder
-item.powder_lead.name=Lead Powder
-item.powder_bronze.name=Bronze Powder
-
-item.axe_bronze.name=Bronze Axe
-item.axe_steel.name=Steel Axe
-
-item.hoe_bronze.name=Bronze Hoe
-item.hoe_steel.name=Steel Hoe
-
-item.pickaxe_bronze.name=Bronze Pickaxe
-item.pickaxe_steel.name=Steel Pickaxe
-
-item.spade_bronze.name=Bronze Spade
-item.spade_steel.name=Steel Spade
-
-item.sword_bronze.name=Bronze Sword
-item.sword_steel.name=Steel Sword
-
-item.vibrant_resource_bits.name=Vibrant Bits
-
-item.twigs.name=Twigs
-
-item.cauldron_lid.name=Cauldron Lid
-
-item.xp_stone.name=Xp Stone
+container.camp_fire=Camp Fire
+container.furnace=Furnace
 
 itemGroup.eot=Essence of Tech
-
-keyBinding.eot.open_eot_Inventory=Open Eot Inventory
-
-category.eot=Essence of Tech
-
-entity.noobmod.noobieZombie.name=Noobie Zombie
-
-container.inventory=Inventory

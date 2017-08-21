@@ -1,6 +1,0 @@
-{
-	"parent":"block/cube_all",
-	"textures": {
-		"all": "eot:blocks/essence_stone_air"
-	}
-}

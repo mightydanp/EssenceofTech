@@ -5,19 +5,20 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 /**
- * @auther MightyDanp date class created: Jul 4, 2016
+ * Created by MightyDanp on 8/8/2017.
  */
-public class CommonProxy {
 
-    public void preInit(FMLPreInitializationEvent event) {
-    }
+public class CommonProxy{
 
-    public void init(FMLInitializationEvent event) {
+    public void preInit() {
 
     }
 
-    public void postInit(FMLPostInitializationEvent event) {
+    public void init() {
 
     }
 
+    public void postInit() {
+
+    }
 }

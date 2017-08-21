@@ -1,28 +1,28 @@
 {
   "variants": {
     "normal": {
-      "model": "eot:twigs"
+      "model": "eot:rocks"
     },
     "facing=north": {
-      "model": "eot:twigs"
+      "model": "eot:rocks"
     },
     "facing=south": {
-      "model": "eot:twigs",
+      "model": "eot:rocks",
       "y": 180,
       "uvlock": true
     },
     "facing=east": {
-      "model": "eot:twigs",
+      "model": "eot:rocks",
       "y": 90,
       "uvlock": true
     },
     "facing=west": {
-      "model": "eot:twigs",
+      "model": "eot:rocks",
       "y": 270,
       "uvlock": true
     },
     "inventory": {
-      "model": "eot:twigs_inventory"
+      "model": "eot:rocks_inventory"
     }
   }
 }

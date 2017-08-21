@@ -1,8 +1,0 @@
-{
-	"variants": {
-		"ore=copper": { "model":"eot:ore_copper" },
-		"ore=tin": { "model":"eot:ore_tin" },
-		"ore=silver": { "model":"eot:ore_silver" },
-		"ore=lead": { "model":"eot:ore_lead" }
-	}
-}
