@@ -12,7 +12,6 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.IPlantable;
 
 import java.util.Random;
-
 /**
  * Created by MightyDanp on 8/21/2017.
  */
