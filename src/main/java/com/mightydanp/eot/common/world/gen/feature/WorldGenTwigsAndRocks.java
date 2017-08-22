@@ -18,14 +18,15 @@ import java.util.Random;
  */
 public class WorldGenTwigsAndRocks extends WorldGenerator {
     private Block getBlock;
-    private IBlockState state = getBlock.getDefaultState();
+    private IBlockState state;
 
     public WorldGenTwigsAndRocks(Block setBlock) {
-        this.getBlock = setBlock;
+        this.setGeneratedBlock(setBlock);
     }
 
     public void setGeneratedBlock(Block setBlock) {
         this.getBlock = setBlock;
+        this.state = setBlock.getDefaultState();
     }
 
     public boolean generate(World worldIn, Random rand, BlockPos position) {
@@ -34,7 +35,7 @@ public class WorldGenTwigsAndRocks extends WorldGenerator {
             IBlockState getBlockState = worldIn.getBlockState(blockpos.down());
             Material getMaterial = getBlockState.getMaterial();
 
-            if(worldIn.isAirBlock(blockpos) && blockpos.getY() < 255 && (getMaterial == Material.GRASS || getMaterial == Material.CLAY || getMaterial == Material.GROUND || getMaterial == Material.ROCK || getMaterial == Material.SAND)) {
+            if(worldIn.isAirBlock(blockpos) && blockpos.getY() < 255 && blockpos.getY() > 0  && (getMaterial == Material.GRASS || getMaterial == Material.CLAY || getMaterial == Material.GROUND || getMaterial == Material.ROCK || getMaterial == Material.SAND)) {
                 worldIn.setBlockState(blockpos, state, 2);
             }
         }

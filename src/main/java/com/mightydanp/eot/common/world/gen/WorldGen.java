@@ -33,7 +33,7 @@ public class WorldGen extends WorldGenCore {
     private void spawnTwigsAndRocks(Block block, World world, Random random, int chunkX, int chunkZ, int spawnChance) {
         for (int i = 0; i < spawnChance; i++) {
             int posX = chunkX + random.nextInt(16);
-            int posY = (world.getHeightmapHeight(chunkX, chunkZ));
+            int posY = (world.getHeightmapHeight(chunkX, chunkZ)-8)+ 4;
             int posZ = chunkZ + random.nextInt(16);
             BlockPos blockPos = new BlockPos(posX, posY, posZ);
             (new WorldGenTwigsAndRocks(block)).generate(world, random, blockPos);
