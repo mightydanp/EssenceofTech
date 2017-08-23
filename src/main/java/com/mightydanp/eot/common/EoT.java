@@ -6,6 +6,7 @@ import com.mightydanp.eot.common.handler.EventHandler;
 import com.mightydanp.eot.common.item.ModItems;
 import com.mightydanp.eot.common.lib.Reference;
 import com.mightydanp.eot.common.world.gen.WorldGen;
+import com.mightydanp.eot.common.world.gen.feature.WorldGenTwigsAndRocks;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
@@ -63,6 +64,7 @@ public class EoT {
         EventHandler handler = new EventHandler();
         MinecraftForge.EVENT_BUS.register(handler);
         GameRegistry.registerWorldGenerator(new WorldGen(), 0);
+        GameRegistry.registerWorldGenerator(new WorldGenTwigsAndRocks(), 1);
         FMLCommonHandler.instance().bus().register(handler);
         EoT.proxy.init();
     }

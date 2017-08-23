@@ -1,43 +1,56 @@
 package com.mightydanp.eot.common.world.gen.feature;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
+import com.mightydanp.eot.common.block.ModBlocks;
+import com.mightydanp.eot.common.config.ConfigSurvival;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
-import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.gen.feature.WorldGenerator;
-import net.minecraftforge.common.IPlantable;
+import net.minecraft.world.chunk.IChunkGenerator;
+import net.minecraft.world.chunk.IChunkProvider;
+import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
+
 /**
  * Created by MightyDanp on 8/21/2017.
  */
-public class WorldGenTwigsAndRocks extends WorldGenerator {
-    private Block getBlock;
-    private IBlockState state;
+public class WorldGenTwigsAndRocks implements IWorldGenerator {
 
-    public WorldGenTwigsAndRocks(Block setBlock) {
-        this.setGeneratedBlock(setBlock);
-    }
+    @Override
+    public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
+        if (!world.provider.isSurfaceWorld()) {
+            return;
+        }
+        int posX = (chunkX * 16) + 8;
+        int posZ = (chunkZ * 16) + 8;
 
-    public void setGeneratedBlock(Block setBlock) {
-        this.getBlock = setBlock;
-        this.state = setBlock.getDefaultState();
-    }
+        int countTwigs = random.nextInt(ConfigSurvival.MAX_TWIGS + 1 - ConfigSurvival.MAX_TWIGS) + ConfigSurvival.MAX_TWIGS;
+        for (int i = 0; i < countTwigs; i++) {
+            BlockPos posTwigs = world.getTopSolidOrLiquidBlock(new BlockPos(posX + offset(8, random), 0, posZ + offset(8, random)));
+            IBlockState getBlockStateTwigs = world.getBlockState(posTwigs.down());
+            Material getMaterialTwigs = getBlockStateTwigs.getMaterial();
 
-    public boolean generate(World worldIn, Random rand, BlockPos position) {
-        for (int i = 0; i < 32; ++i) {
-            BlockPos blockpos = position.add(rand.nextInt(8) - rand.nextInt(8), rand.nextInt(4) - rand.nextInt(4), rand.nextInt(8) - rand.nextInt(8));
-            IBlockState getBlockState = worldIn.getBlockState(blockpos.down());
-            Material getMaterial = getBlockState.getMaterial();
-
-            if(worldIn.isAirBlock(blockpos) && blockpos.getY() < 255 && blockpos.getY() > 0  && (getMaterial == Material.GRASS || getMaterial == Material.CLAY || getMaterial == Material.GROUND || getMaterial == Material.ROCK || getMaterial == Material.SAND)) {
-                worldIn.setBlockState(blockpos, state, 2);
+            if (world.isAirBlock(posTwigs) && posTwigs.getY() > 0 && posTwigs.getY() < 255 && (getMaterialTwigs == Material.GRASS || getMaterialTwigs == Material.CLAY || getMaterialTwigs == Material.GROUND || getMaterialTwigs == Material.ROCK || getMaterialTwigs == Material.SAND) && !world.isAirBlock(posTwigs.down()) && getBlockStateTwigs.getBlock() != Blocks.AIR) {
+                world.setBlockState(posTwigs, ModBlocks.twigs.getDefaultState());
             }
         }
-        return true;
+
+        int countRocks = random.nextInt(ConfigSurvival.MAX_ROCKS + 1 - ConfigSurvival.MIN_ROCKS) + ConfigSurvival.MIN_ROCKS;
+        for (int i = 0; i < countRocks; i++) {
+            BlockPos posRocks = world.getTopSolidOrLiquidBlock(new BlockPos(posX + offset(8, random), 0, posZ + offset(8, random)));
+            IBlockState getBlockStateRocks = world.getBlockState(posRocks.down());
+            Material getMaterialRocks = getBlockStateRocks.getMaterial();
+
+            if (world.isAirBlock(posRocks) && posRocks.getY() > 0 && posRocks.getY() < 255 && (getMaterialRocks == Material.GRASS || getMaterialRocks == Material.CLAY || getMaterialRocks == Material.GROUND || getMaterialRocks == Material.ROCK || getMaterialRocks == Material.SAND) && !world.isAirBlock(posRocks.down()) && getBlockStateRocks.getBlock() != Blocks.AIR) {
+                world.setBlockState(posRocks, ModBlocks.rocks.getDefaultState());
+            }
+
+        }
+    }
+
+    public int offset(int bound, Random rand) {
+        return rand.nextInt(bound * 2) - bound;
     }
 }

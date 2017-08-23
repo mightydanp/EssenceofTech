@@ -32,10 +32,21 @@ fluid.fluid_tungstensteel=Molton Tungsten Steel
 config.main_eot_title.name=Essence of Tech Config
 config.category.survivial.name=Survival
 config.category.survivial.comment=Settings that alter or change survival.
+config.category.world_generation.name=World Generation
+config.category.world_generation.comment=Setting for world generation.
 config.better_adventure.name=Better Adventure
 config.better_adventure.comment=Turn this to false if you don't want to be forced to use the right tool to harvest a block.
 config.force_survival.name=Force Survival.
 config.force_survival.comment=When set to true it will force the player into survival if the player is in adventure.
+config.min_rocks.name=Minimum rocks.
+config.min_rocks.comment=The minimum number of rocks in allowed in one chunk.
+config.max_rocks.name=Max rocks.
+config.max_rocks.comment=The Max number of rocks in allowed in one chunk.
+config.min_twigs.name=Minimum twigs.
+config.min_twigs.comment=The minimum number of twigs in allowed in one chunk.
+config.max_twigs.name=Max twigs.
+config.max_twigs.comment=The Max number of twigs in allowed in one chunk.
+
 
 
 

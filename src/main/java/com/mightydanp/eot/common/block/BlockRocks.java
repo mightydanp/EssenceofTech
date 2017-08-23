@@ -45,6 +45,12 @@ public class BlockRocks extends BlockCore implements IPlantable {
         return state.getMaterial() == Material.GROUND || state.getMaterial() == Material.ROCK || state.getMaterial() == Material.GRASS || state.getMaterial() == Material.CLAY || state.getMaterial() == Material.SAND || state.getBlock() instanceof BlockStone;
     }
 
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos)
+    {
+        return worldIn.getBlockState(pos).getBlock().isReplaceable(worldIn, pos);
+    }
+
+
     public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
         if (state.getBlock() == this) {
             IBlockState soil = worldIn.getBlockState(pos.down());
