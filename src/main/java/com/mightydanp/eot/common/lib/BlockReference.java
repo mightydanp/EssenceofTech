@@ -1,10 +1,8 @@
 package com.mightydanp.eot.common.lib;
 
 /**
- * Created by MightyDanp on 8/12/2017.
+ * Created by MightyDanp on 7/14/2018.
  */
 public class BlockReference {
-
-    public static final String TWIGS_NAME = "twigs";
-    public static final String ROCKS_NAME = "rocks";
+    public static String TWIGS_NAME = "twigs";
 }
