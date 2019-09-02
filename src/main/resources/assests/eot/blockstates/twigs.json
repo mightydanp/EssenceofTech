@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "normal": {
+      "model": "eot:twigs"
+    },
+    "facing=north": {
+      "model": "eot:twigs"
+    },
+    "facing=south": {
+      "model": "eot:twigs",
+      "y": 180,
+      "uvlock": true
+    },
+    "facing=east": {
+      "model": "eot:twigs",
+      "y": 90,
+      "uvlock": true
+    },
+    "facing=west": {
+      "model": "eot:twigs",
+      "y": 270,
+      "uvlock": true
+    },
+    "inventory": {
+      "model": "eot:twigs_inventory"
+    }
+  }
+}

@@ -16,17 +16,22 @@ import java.util.logging.Logger;
 
 @Mod(modid = Reference.MOD_ID, version = Reference.MOD_VERSION)
 public class EoT {
+
+    @Mod.Instance(Reference.MOD_ID)
     public static EoT instance;
 
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_LOCATION, serverSide = Reference.COMMON_PROXY_LOCATION)
     public static CommonProxy proxy;
     public static Logger log;
+    
     public static ModEventHandler eventHandler;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         System.out.println("EoT PreInitialization Started");
         EoT.proxy.preInit();
+        ModBlocks.init();
+        MinecraftForge.EVENT_BUS.register(new ModEventHandler());
         System.out.println("EoT PreInitialization Ended");
     }
 
@@ -34,8 +39,6 @@ public class EoT {
     public void init(FMLInitializationEvent event) {
         System.out.println("EoT Initialization Started");
         EoT.proxy.init();
-        ModBlocks.init();
-        MinecraftForge.EVENT_BUS.register(new ModEventHandler());
         System.out.println("EoT Initialization Ended");
     }
 
