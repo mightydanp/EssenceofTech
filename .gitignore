@@ -41,3 +41,12 @@ options.txt
 /out
 .gitignore
 .gitattributes
+/gradle
+/hooks
+/info
+/*.log
+/tgitchangelist
+/usernamecache.json
+/HEAD
+/description
+/config

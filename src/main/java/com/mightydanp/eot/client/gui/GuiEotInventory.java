@@ -5,11 +5,11 @@ import org.lwjgl.opengl.GL12;
 
 import tconstruct.client.tabs.TabRegistry;
 
-import com.mightydanp.eot.inventory.InventoryEotInventory;
+import com.mightydanp.eot.common.inventory.InventoryEotInventory;
 import com.mightydanp.eot.client.tabs.InventoryTabEot;
-import com.mightydanp.eot.inventory.ContainterEotInventory;
-import com.mightydanp.eot.item.ModItems;
-import com.mightydanp.eot.lib.References;
+import com.mightydanp.eot.common.inventory.ContainterEotInventory;
+import com.mightydanp.eot.common.item.ModItems;
+import com.mightydanp.eot.common.lib.References;
 
 import cpw.mods.fml.common.Loader;
 import net.minecraft.client.Minecraft;
@@ -64,7 +64,7 @@ public class GuiEotInventory extends GuiContainer{
         {
             this.xSize += BAG_WIDTH;
             this.bagLeft = this.guiLeft;
-            if (inventory.getInventory()[0].getItem() == ModItems.Bagtier3)
+            if (inventory.getInventory()[0].getItem() == ModItems.bagTier3)
                 this.ySize = 180;
         }
         
@@ -100,21 +100,21 @@ public class GuiEotInventory extends GuiContainer{
         
         if (inventory.getInventory()[0] != null)
         {       
-            	if(this.xSize == 288 && inventory.getInventory()[0].getItem() == ModItems.Bagtier1){
+            	if(this.xSize == 288 && inventory.getInventory()[0].getItem() == ModItems.bagTier1){
             		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
                     this.mc.getTextureManager().bindTexture(tier1Bag);
                     
                     this.drawTexturedModalRect(bagLeft + 164 , bagTop, 0, 0, 150, 72);
             	}
             	
-            	if(this.xSize == 288 && inventory.getInventory()[0].getItem() == ModItems.Bagtier2) {
+            	if(this.xSize == 288 && inventory.getInventory()[0].getItem() == ModItems.bagTier3) {
             		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
                     this.mc.getTextureManager().bindTexture(tier2Bag);
                     
                     this.drawTexturedModalRect(bagLeft + 164 , bagTop, 0, 0, 150, 125);
             	}
             	
-            	if(this.xSize == 288 && inventory.getInventory()[0].getItem() == ModItems.Bagtier3) {
+            	if(this.xSize == 288 && inventory.getInventory()[0].getItem() == ModItems.bagTier3) {
             		GL11.glColor4f(1.0F, 1.0F, 1.0F, 1.0F);
                     this.mc.getTextureManager().bindTexture(tier3Bag);
                     

@@ -2,12 +2,12 @@ package com.mightydanp.eot.client.tabs;
 
 import tconstruct.client.tabs.AbstractTab;
 
-import com.mightydanp.eot.Eot;
-import com.mightydanp.eot.core.proxy.CommonProxy;
-import com.mightydanp.eot.inventory.InventoryEotInventory;
-import com.mightydanp.eot.item.ModItems;
-import com.mightydanp.eot.network.PacketDispatcher;
-import com.mightydanp.eot.network.server.OpenGuiMessage;
+import com.mightydanp.eot.common.Eot;
+import com.mightydanp.eot.common.CommonProxy;
+import com.mightydanp.eot.common.inventory.InventoryEotInventory;
+import com.mightydanp.eot.common.item.ModItems;
+import com.mightydanp.eot.common.network.PacketDispatcher;
+import com.mightydanp.eot.common.network.server.OpenGuiMessage;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.client.Minecraft;
