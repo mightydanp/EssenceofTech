@@ -1,6 +1,0 @@
-{
-	"variants": {
-		"bag_empty=empty": { "model":"eot:bag_empty" },
-		"bag_empty=vibrant": { "model":"eot:bag_vibrant" }
-	}
-}

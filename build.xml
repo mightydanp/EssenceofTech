@@ -1,0 +1,56 @@
+<?xml version="1.0" ?> 
+<project name="Top" default="build">
+
+	<!-- Files which hold information -->
+	<property file="build.properties" prefix="build"/>
+	<property file="build_number.properties" prefix="build_number"/>
+
+	<!-- Delete files which were used in previous build -->
+	<target name="clean">
+		<delete dir="build" />
+		<delete dir="temporary" />
+	</target>
+	
+	<!-- Increment build number -->
+	<target name="increment_build_number">
+		<propertyfile file="build.properties">
+			<entry key="number" type="int" operation="+" default="1"/>
+		</propertyfile>
+	</target>
+
+	<!-- Copy your project to MCP-->	
+	<target name="reobfuscate">
+	    <exec dir="${build.dir.development}\forge" executable="cmd" osfamily="windows">
+			 <arg line="/c gradlew.bat packCoreJar" />
+		</exec>
+		<exec dir="${build.dir.development}\forge" executable="bash" osfamily="unix">
+			<arg line="gradlew.sh packCoreJar" />
+		</exec>
+	</target>
+	
+	<target name="movebuild">
+		<mkdir dir="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}\${build.number}" />
+		<copy todir="${build.dir.release}\${build.release.minecraft.version}\${build.release.mod.version}\${build.number}">
+			<fileset dir="build\libs"/>
+		</copy>
+	</target>
+	
+	<target name="backupcode">
+		<mkdir dir="backup code\${build.release.minecraft.version}\${build.release.mod.version}\${build.number}" />
+		<copy todir="Backup code\${build.release.minecraft.version}\${build.release.mod.version}\${build.number}">
+			<fileset dir="${build.dir.development}\source\EssenceofTech\src"/>
+		</copy>
+	</target>
+	
+	<!-- The actual build, where we call the targets -->
+	<target name="build">
+		<!-- Prep for the build -->
+		<antcall target="clean" />
+		<antcall target="reobfuscate" />
+		<antcall target="movebuild" />
+		<antcall target="backupcode" />
+		<antcall target="increment_build_number" />
+		
+		<antcall target="clean" />
+	</target>
+</project>

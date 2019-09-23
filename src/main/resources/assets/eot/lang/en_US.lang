@@ -1,0 +1,72 @@
+tile.essenceStoneAir.name=Air EssenceStone
+tile.essenceStoneMagic.name=Magic EssenceStone
+tile.essenceStoneEarth.name=Earth EssenceStone
+tile.essenceStoneFire.name=Fire EssenceStone
+tile.essenceStoneWater.name=Water EssenceStone
+tile.oreCopper.name=Copper Ore
+tile.oreTin.name=Tin Ore
+tile.oreSilver.name=Silver Ore
+tile.oreLead.name=Lead Ore
+tile.oreRuby.name=Ruby Ore
+tile.oreSapphire.name=Sapphire Ore
+tile.blockCopper.name=Block of Copper
+tile.blockTin.name=Block of Tin
+tile.blockLead.name=Block of Lead
+tile.blockBronze.name=Block of Bronze
+tile.blockSilver.name=Block of Silver
+tile.blockRuby.name=Block of Ruby
+tile.blockSapphire.name=Block of Sapphire
+
+tile.decorativeBrickCastle.name=Castle Brick
+
+
+item.magicalStone.name=Magical Stone
+item.hammerMysterious.name=Mysterious Hammer
+item.endermanFlesh.name=Enderman Flesh
+item.bagTier1.name=Magical Bag
+item.bagTier2.name=Magical Bag
+item.bagTier3.name=Magical Bag
+
+item.essenceChunkAir.name=Air EssenceChunk
+item.essenceChunkMagic.name=Magic EssenceChunk
+item.essenceChunkEarth.name=Earth EssenceChunk
+item.essenceChunkFire.name=Fire EssenceChunk
+item.essenceChunkWater.name=Water EssenceChunk
+
+item.ingotCopper.name=Copper Ingot
+item.ingotTin.name=Tin Ingot
+item.ingotLead.name=Lead Ingot
+item.ingotBronze.name=Bronze Ingot
+item.ingotSilver.name=Silver Ingot
+item.ingotSteel.name=Steel Ingot
+
+item.gemRuby.name=Ruby
+item.gemSapphire.name=Sapphire
+
+item.rawPowderIron.name=Iron Raw Powder
+item.rawPowderGold.name=Gold Raw Powder
+item.rawPowderTin.name=Tin Raw Powder
+item.rawPowderCopper.name=Copper Raw Powder
+item.rawPowderSilver.name=Silver Raw Powder
+item.rawPowderLead.name=Lead Raw Powder
+
+item.purePowderIron.name=Iron Pure Powder
+item.purePowderGold.name=Gold Pure Powder
+item.purePowderTin.name=Tin Pure Powder
+item.purePowderCopper.name=Copper Pure Powder
+item.purePowderSilver.name=Silver Pure Powder
+item.purePowderLead.name=Lead Pure Powder
+
+item.powderIron.name=Iron Powder
+item.powderGold.name=Gold Powder
+item.powderTin.name=Tin Powder
+item.powderCopper.name=Copper Powder
+item.powderSilver.name=Silver Powder
+item.powderLead.name=Lead Powder
+item.powderBronze.name=Bronze Powder
+
+itemGroup.eot=Essence of Tech
+
+entity.noobmod.noobieZombie.name=Noobie Zombie
+
+container.inventory=Inventory

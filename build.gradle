@@ -1,48 +1,118 @@
 buildscript {
     repositories {
-        jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        mavenCentral()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+        maven {
+            name = "sonatype"
+            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
     }
 }
-apply plugin: 'net.minecraftforge.gradle.forge'
 
-file "build.properties" withReader {
+apply plugin: 'forge'
+
+sourceSets.main {
+    java {
+        srcDirs = ['src/main/java', 'src/api/java']
+    }
+    resources {
+        srcDirs = ['src/main/resources', 'src/api/resources']
+    }
+}
+
+ext.configFile = file "build.properties"
+
+configFile.withReader {
     def prop = new Properties()
     prop.load(it)
-    ext.config = new ConfigSlurper().parse prop
+    project.ext.config = new ConfigSlurper().parse prop
 }
-
-version = "${config.version}"
-group = "${config.group}"
-archivesBaseName = "${config.archivesBaseName}"
-
-sourceCompatibility = targetCompatibility = '1.8'
-compileJava {
-    sourceCompatibility = targetCompatibility = '1.8'
-}
+version = "${config.mod_version}"
+group= "com.mightydanp.eot" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "${config.Mod_ID}"
 
 minecraft {
-    version = "${config.minecraft_version}-${config.forge_version}"
-    runDir = "run"
-    mappings = "snapshot_20170624"
-    // makeObfSourceJar = false
+    version = "1.7.10-10.13.4.1614-1.7.10"
+    runDir = "eclipse"
 }
 
-dependencies {}
+ext.dependencies = ['**/EOT_at']
 
-processResources {
-    inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
-	
-    from(sourceSets.main.resources.srcDirs) {
-        include 'mcmod.info'
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+ext.coreFiles = ['com/mightydanp/eot/**',
+                    '**/EOT_at.cfg',
+					'tconstruct/**',
+					'assets/eot/**',
+					'assets/minecraft/**']
+
+ext.coreJar = "build/libs/" + archivesBaseName + "-" + version + ".jar"
+
+jar
+{
+	// Add necessary files, remove unnecessary ones.
+	includes.addAll(project.ext.coreFiles)
+	includes.addAll('mcmod.info')
+	includes.addAll('LICENSE.txt')
+	includes.addAll(project.ext.dependencies)
+	manifest {
+        attributes 'FMLAT': 'EOT_at.cfg'
     }
+}
+
+task moveCoreMcmodInfo(type: Copy, dependsOn: "reobf") {
+	from 'src/main/resources/assets/eot/mcmod.info'
+	from 'LICENSE.txt'
+	from(zipTree(project.ext.coreJar))
+	into 'temporary'
+}
+
+task rePackAllJar(type: Jar, dependsOn: "moveCoreMcmodInfo") {
+	from 'temporary'
+}
+
+task packJar(type: Jar, dependsOn: "rePackAllJar") {
+	// Jar will always be updated
+	outputs.upToDateWhen {false}
+	// Set the jar's base name
+	baseName = "Essence of Tech"
 	
-    from(sourceSets.main.resources.srcDirs) {
-        exclude 'mcmod.info'
-    }
+	from(zipTree(project.ext.coreJar)) {
+		// Add necessary files, remove unnecessary ones.
+		includes.addAll(project.ext.coreFiles)
+		includes.addAll('mcmod.info')
+		includes.addAll('LICENSE.txt')
+		excludes.addAll(project.ext.dependencies)
+	}
+}
+
+task packJarDev(type: Jar, dependsOn: "classes") {
+	from (sourceSets.main.output) {
+		includes.addAll(project.ext.coreFiles)
+		includes.addAll('mcmod.info')
+		includes.addAll('LICENSE.txt')
+		excludes.addAll(project.ext.dependencies)
+	}
+	
+	from (sourceSets.main.allSource) {
+		includes.addAll(project.ext.coreFiles)
+		includes.addAll('mcmod.info')
+		includes.addAll('LICENSE.txt')
+		excludes.addAll(project.ext.dependencies)
+		excludes.addAll('assets')
+		into 'src'
+	}
+	
+	// Jar will always be updated
+	outputs.upToDateWhen {false}
+	// Set the jar's base name
+	baseName = "Essence of Tech-Dev"
+}
+
+task cleanOldJar(type: Delete, dependsOn: "packJar") {
+	delete 'temporary', project.ext.coreJar
 }
